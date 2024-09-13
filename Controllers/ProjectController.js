@@ -9,10 +9,7 @@ app.use(express.urlencoded({ extended: true })); // to parse the body .. instead
 exports.getProjects = async(req,res) =>{
     try{
         const projects = await Project.find();
-        
         console.log(projects);
-        
-        
         res.status(200).json(projects);
     }
     catch(err){
