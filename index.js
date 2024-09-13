@@ -8,7 +8,7 @@ const LoginRoute = require('./Routes/LoginRoute');
 const upload = require('./config/multerConifg');
 const path = require('path');
 const cors = require('cors');
-const PORT = 3000;
+const PORT = process.env.PORT || 3000;
 connectDB();
 
 
