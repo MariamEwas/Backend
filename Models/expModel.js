@@ -3,9 +3,10 @@ const mongoose =require('mongoose');
 const ExpSchema = mongoose.Schema({
     id:Number,
     name:String,
-    year:Number,
+    year:String,
     rule:String,
     desc:String,
+    imageUrl:String
 });
 
 const Exp=mongoose.model('Experience',ExpSchema);

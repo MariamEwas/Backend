@@ -27,7 +27,7 @@ exports.deleteExperience = async(req,res) => {
 
 exports.addExperience = async (req,res) =>{
     try{
-        const {id,name,role,desc,year} = req.body;
+        const {id,name,role,desc,year,imageUrl} = req.body;
         
         const newExp={};
         if (id !== null && id !== undefined) newExp.id = id;
@@ -35,7 +35,8 @@ exports.addExperience = async (req,res) =>{
         if (desc !== null && desc !== undefined) newExp.desc = desc;
         if (role !== null && role !== undefined) newExp.role = role;
         if (year !== null && year !== undefined) newExp.year = year;
-        console.log(newExp);
+        if (imageUrl !== null && imageUrl !== undefined) newExp.imageUrl = imageUrl;
+
         await Exp.create(newExp);
 
         res.status(201).json(newExp);

@@ -29,13 +29,14 @@ exports.deletePhase = async(req,res) => {
 
 exports.addPhase = async (req,res) =>{
     try{
-        const {id,desc,courses} = req.body;
+        const {id,desc,name,courses} = req.body;
         
         const newPhase={};
         if (id !== null && id !== undefined) newPhase.id = id;
         if (desc !== null && desc !== undefined) newPhase.desc = desc;
         if (courses) newPhase.courses = courses;
-        console.log(newPhase);
+        if (name !== null && name !== undefined) newPhase.name = name;
+
         await Exp.create(newPhase);
 
         res.status(201).json(newPhase);
