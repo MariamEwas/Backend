@@ -8,7 +8,7 @@ const LoginRoute = require('./Routes/LoginRoute');
 const upload = require('./config/multerConifg');
 const path = require('path');
 const cors = require('cors');
-const PORT = 3000;
+const PORT = process.env.PORT || 3000;
 connectDB();
 
 
@@ -47,5 +47,5 @@ app.get('/',async(req,res)=>{
 // });
 
 app.listen(PORT,()=>
-{console.log('Server is running on PORT 3000');}
+{console.log(`Server is running on ${PORT}`);}
 );
