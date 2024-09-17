@@ -1,7 +1,7 @@
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 require('dotenv').config();
-
+const secret_key ='12345';
 
 exports.login = async(req,res)=>{
     try{   
@@ -16,7 +16,7 @@ exports.login = async(req,res)=>{
         return res.status(402).send('Password is wrong');
     }
     const token = jwt.sign(
-         { userId: 1, userType: 'admin' },process.env.secret_key,{expiresIn:'1h'}
+         { userId: 1, userType: 'admin' },secret_key,{expiresIn:'1h'}
     )
         return res.status(200).json(token);
     }
